@@ -1,0 +1,38 @@
+<div class="center jumbotron">
+
+  <h1>Movies</h1>
+
+  <% if @movies.any? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Rating</th>
+          <th>Category</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= movie.title %></td>
+          <td><%= movie.text %></td>
+          <td><%= movie.rating %></td>
+          <td><%= movie.category %></td>
+          <td><%= link_to 'Show', movie %></td>
+          <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+          <td><%= link_to 'Destroy', movie, method: :delete,
+                                          data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <div>No movies. Would you like to add one?</div>
+  <% end %>
+  <br>
+
+  <%= link_to 'Add new movie', new_movie_path %>
+
+</div>
