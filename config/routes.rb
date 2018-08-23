@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get  '/login',  to: 'login#new'
   get  '/signup',  to: 'user#new'
 
-  root 'home#index'
+  root 'movies#index'
 end
