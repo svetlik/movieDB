@@ -1,6 +1,11 @@
 class MoviesController < ApplicationController
+
   def index
     @movies = Movie.order(created_at: :desc).paginate(per_page: 10, page: params[:page])
+    respond_to do |format|
+      format.json {render json: @movies}
+      format.html
+    end
   end
 
   def show

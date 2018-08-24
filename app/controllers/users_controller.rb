@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def show
     @user = User.find(params[:id])
   end
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Welcome to Movie DB"
-      redirect_to @user
+      redirect_to movies_path
     else
       render 'new'
     end
