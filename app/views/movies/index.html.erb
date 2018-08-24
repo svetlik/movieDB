@@ -1,5 +1,4 @@
 <div class="jumbotron">
-
   <h1>Movies</h1>
 
   <% if @movies.any? %>
@@ -15,6 +14,9 @@
         </tr>
       </thead>
 
+      <div>
+
+      </div>
 
       <% @movies.each do |movie| %>
         <tr>
@@ -35,7 +37,12 @@
   <% end %>
   <br>
 
-  <%= link_to 'Add new movie', new_movie_path %>
+  <nav class="navbar navbar-right">
+    <div class="nav-links">
+      <span><%= link_to 'Add new movie', new_movie_path %></span>
+      <span><%= link_to 'Add new category', new_category_path %></span>
+    </div>
+  </nav>
 
 </div>
 

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
   resources :movies
   resources :users
+  resources :categories
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
