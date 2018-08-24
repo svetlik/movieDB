@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
   resources :movies
+  resources :users
 
-  get  '/login',  to: 'login#new'
-  get  '/signup',  to: 'user#new'
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
+  get  '/signup',  to: 'users#new'
 
   root 'movies#index'
 end
