@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.order(created_at: :desc).paginate(per_page: 10, page: params[:page])
+    @movies = scope.paginate(per_page: 10, page: params[:page])
     respond_to do |format|
       format.json {render json: @movies}
       format.html
@@ -49,6 +49,10 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :text, :rating, :category_id)
+    params.require(:movie).permit(:title, :text, :rating, :category_id).merge(author_id: current_user.id)
+  end
+
+  def scope
+    Movie.order(created_at: :desc)
   end
 end

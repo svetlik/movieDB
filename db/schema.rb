@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_23_195829) do
+ActiveRecord::Schema.define(version: 2018_08_24_193101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2018_08_23_195829) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
+    t.bigint "author_id"
+    t.index ["author_id"], name: "index_movies_on_author_id"
     t.index ["category_id"], name: "index_movies_on_category_id"
   end
 
@@ -40,4 +42,5 @@ ActiveRecord::Schema.define(version: 2018_08_23_195829) do
   end
 
   add_foreign_key "movies", "categories"
+  add_foreign_key "movies", "users", column: "author_id"
 end

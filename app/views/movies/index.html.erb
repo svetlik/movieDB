@@ -27,7 +27,7 @@
           <td><%= movie.text %></td>
           <td><%= movie.rating %></td>
           <td><%= movie.category.name %></td>
-          <% if logged_in? %>
+          <% if logged_in? && movie.author_id == current_user.id %>
             <td><%= link_to 'Show', movie %></td>
             <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
             <td><%= link_to 'Destroy', movie, method: :delete,
@@ -39,6 +39,16 @@
   <% else %>
     <div>No movies. Would you like to add one?</div>
   <% end %>
+
+  <%= will_paginate @movies %>
+
+  <nav class="navbar navbar-right">
+    <div class="nav-links">
+      <span><%= link_to 'Add new movie', new_movie_path %></span>
+      <span><%= link_to 'Add new category', new_category_path %></span>
+    </div>
+  </nav>
+
   <br>
 
   <div class="container">
@@ -57,13 +67,5 @@
     <% end %>
   </div>
 
-  <nav class="navbar navbar-right">
-    <div class="nav-links">
-      <span><%= link_to 'Add new movie', new_movie_path %></span>
-      <span><%= link_to 'Add new category', new_category_path %></span>
-    </div>
-  </nav>
 
 </div>
-
-<%= will_paginate @movies %>
