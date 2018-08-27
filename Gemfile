@@ -11,8 +11,9 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'bootstrap-sass', '3.3.7'
 gem 'simple_form'
 gem 'will_paginate', '~> 3.1.0'
-gem 'react-rails'
 gem 'search_object'
+gem 'react-rails'
+gem 'webpacker'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
