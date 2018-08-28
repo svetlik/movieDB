@@ -5,10 +5,9 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.create(category_params)
-    if @category.save!
+    if @category.save
       redirect_to movies_path, notice: 'Category created'
     else
-      flash[:error] = 'Category not created'
       render :new
     end
   end

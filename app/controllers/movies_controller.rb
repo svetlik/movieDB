@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-    if @movie.save!
+    if @movie.save
       redirect_to movies_path, notice: "Movie added to the DB"
     else
       flash[:error] = 'Movie already exists in the DB'
@@ -32,7 +32,7 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find_by(id: params[:id])
-    if @movie.update!(movie_params)
+    if @movie.update(movie_params)
       redirect_to movies_path, notice: "Movie info updated"
     else
       flash[:error] = 'Invalid data'
