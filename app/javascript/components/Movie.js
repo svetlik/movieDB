@@ -15,13 +15,12 @@ class Movie extends React.Component {
   render () {
     return (
       <React.Fragment>
-      <div className="container">
+      <div className="jumbotron">
+      <h1>{this.state.title}</h1>
         <div>
-          Title: {this.state.title}
+          {this.state.text}
         </div>
-        <div>
-          Text: {this.state.text}
-        </div>
+        <br/>
         <div>
           Rating: {this.state.rating}
         </div>

@@ -1,71 +1,65 @@
-<div class="jumbotron">
+<div class="jumbotron grid-container">
   <h1>Movies</h1>
 
-  <% if @movies.any? %>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Title</th>
-          <th scope="col">Description</th>
-          <th scope="col">Rating</th>
-          <th scope="col">Category</th>
-          <% if logged_in? %>
-            <th colspan="3"></th>
-          <% end %>
-        </tr>
-      </thead>
-
-      <div>
-
-      </div>
-
-      <% @movies.each do |movie| %>
-        <tr>
-          <th scope="row"><%= movie.id %></th>
-          <td><%= movie.title %></td>
-          <td><%= movie.text %></td>
-          <td><%= movie.rating %></td>
-          <td><%= movie.category.name %></td>
-          <% if logged_in? && movie.author_id == current_user.id %>
-            <td><%= link_to 'Show', movie %></td>
-            <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-            <td><%= link_to 'Destroy', movie, method: :delete,
-                                            data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        </tr>
-      <% end %>
-    </table>
-  <% else %>
-    <div>No movies. Would you like to add one?</div>
-  <% end %>
-
-  <%= will_paginate @movies %>
-
-  <nav class="navbar navbar-right">
-    <div class="nav-links">
-      <span><%= link_to 'Add new movie', new_movie_path %></span>
-      <span><%= link_to 'Add new category', new_category_path %></span>
-    </div>
-  </nav>
-
-  <br>
-
-  <div class="container">
+  <div class="container grid-25">
     <p>Categories</p>
     <% Category.all.each do |category| %>
       <div><%= "#{category.name} (#{Movie.where(category: category).count})"%></div>
     <% end %>
   </div>
 
-  <br>
+  <div class="grid-50">
+    <% if @movies.any? %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Category</th>
+            <% if logged_in? %>
+              <th colspan="3"></th>
+            <% end %>
+          </tr>
+        </thead>
 
-  <div class="container">
+        <div>
+
+        </div>
+
+        <% @movies.each do |movie| %>
+          <tr>
+            <th scope="row"><%= movie.id %></th>
+            <td><%= movie.title %></td>
+            <td><%= movie.rating %></td>
+            <td><%= movie.category.name %></td>
+            <% if logged_in? && movie.author_id == current_user.id %>
+              <td><%= link_to 'Show', movie %></td>
+              <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+              <td><%= link_to 'Destroy', movie, method: :delete,
+                                              data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      <div>No movies. Would you like to add one?</div>
+    <% end %>
+
+    <%= will_paginate @movies %>
+  </div>
+
+  <div class="container grid-25">
     <p>Rating</p>
     <% [1, 2, 3, 4, 5].each do |num| %>
       <div><%= "#{num} (#{Movie.where(rating: num).count}) " %></div>
     <% end %>
   </div>
-
-
 </div>
+
+<nav class="navbar navbar-right">
+  <div class="nav-links">
+    <span><%= link_to 'Add new movie', new_movie_path %></span>
+    <span><%= link_to 'Add new category', new_category_path %></span>
+  </div>
+</nav>
