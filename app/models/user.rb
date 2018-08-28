@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :movies
+  has_many :ratings
 
   before_save { self.email = email.downcase }
 
