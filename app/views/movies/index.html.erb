@@ -13,7 +13,6 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Title</th>
             <th scope="col">Rating</th>
             <th scope="col">Category</th>
@@ -29,7 +28,6 @@
 
         <% @movies.each do |movie| %>
           <tr>
-            <th scope="row"><%= movie.id %></th>
             <td><%= movie.title %></td>
             <td><%= movie.rating %></td>
             <td><%= movie.category.name %></td>
@@ -59,7 +57,7 @@
 
 <nav class="navbar navbar-right">
   <div class="nav-links">
-    <span><%= link_to 'Add new movie', new_movie_path %></span>
-    <span><%= link_to 'Add new category', new_category_path %></span>
+    <span class="btn btn-link"><%= link_to 'Add new movie', new_movie_path %></span>
+    <span class="btn btn-link"><%= link_to 'Add new category', new_category_path %></span>
   </div>
 </nav>

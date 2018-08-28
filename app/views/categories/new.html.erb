@@ -1,9 +1,11 @@
 <div class="jumbotron">
   <h1>New category</h1>
 
-  <% @category.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
+  <div class="alert alert-danger">
+    <% @category.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </div>
 
   <%= simple_form_for @category do |f| %>
     <%= f.input :name %>
