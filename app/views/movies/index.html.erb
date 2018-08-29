@@ -4,7 +4,7 @@
   <div class="container grid-25">
     <p>Categories</p>
     <% Category.all.each do |category| %>
-      <div><%= "#{category.name} (#{Movie.where(category: category).count})"%></div>
+      <div><%= link_to category.name, movies_path(category: category)%> (<%= "#{Movie.where(category: category).count}"%>)</div>
     <% end %>
   </div>
 
@@ -50,7 +50,7 @@
   <div class="container grid-25">
     <p>Rating</p>
     <% [1, 2, 3, 4, 5].each do |num| %>
-      <div><%= "#{num} (#{Movie.where(rating: num).count}) " %></div>
+      <div><%= link_to num, movies_path(rating: num)%> (<%= "#{Movie.where(rating: num).count}"%>)</div>
     <% end %>
   </div>
 </div>

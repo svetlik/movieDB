@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  before_action :set_category
+  before_action :set_rating
 
   def index
     @movies = scope.paginate(per_page: 10, page: params[:page])
@@ -52,7 +54,18 @@ class MoviesController < ApplicationController
     params.require(:movie).permit(:title, :text, :rating, :category_id).merge(author_id: current_user.id)
   end
 
+  def set_category
+    @category = params[:category]
+  end
+
+  def set_rating
+    @rating = params[:rating]
+  end
+
   def scope
+    return Movie.by_category(@category) if @category.present?
+    return Movie.by_rating(@rating) if @rating.present?
+
     Movie.order(created_at: :desc)
   end
 end

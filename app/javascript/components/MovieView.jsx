@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-class MovieList extends React.Component {
+class MovieView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,7 +35,7 @@ class MovieList extends React.Component {
   }
 }
 
-MovieList.propTypes = {
+MovieView.propTypes = {
   greeting: PropTypes.string
 };
-export default MovieList
+export default MovieView
