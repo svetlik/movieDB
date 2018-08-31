@@ -1,14 +1,16 @@
 <div class="jumbotron grid-container">
   <h1>Movies</h1>
 
-  <div class="container grid-25">
+  <%= react_component("FilterField", { title: 'Categories', collection: rating_list }) %>
+
+  <div class="container grid-25 mobile-grid-25">
     <p>Categories</p>
     <% Category.all.each do |category| %>
       <div><%= link_to category.name, movies_path(category: category)%> (<%= "#{Movie.where(category: category).count}"%>)</div>
     <% end %>
   </div>
 
-  <div class="grid-50">
+  <div class="grid-50 mobile-grid-50 ">
     <% if @movies.any? %>
       <table class="table table-striped">
         <thead>
@@ -41,13 +43,15 @@
         <% end %>
       </table>
     <% else %>
-      <div>No movies. Would you like to add one?</div>
+      <div>No movies. Would you like to <%= link_to 'add one?', new_movie_path %></div>
     <% end %>
 
-    <%= will_paginate @movies %>
+    <%= will_paginate @movies, class: 'pagination' %>
   </div>
 
-  <div class="container grid-25">
+  <%= react_component("FilterField", { title: 'Rating', collection: rating_list }) %>
+
+  <div class="container grid-25 mobile-grid-25">
     <p>Rating</p>
     <% [1, 2, 3, 4, 5].each do |num| %>
       <div><%= link_to num, movies_path(rating: num)%> (<%= "#{Movie.where(rating: num).count}"%>)</div>

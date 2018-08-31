@@ -8,7 +8,7 @@
   <% end %>
 
   <%= simple_form_for @category do |f| %>
-    <%= f.input :name %>
+    <%= f.input :name, label: false, placeholder: 'Name' %>
 
     <%= f.submit 'Save', class: 'btn-primary lg' %>
     <%= link_to 'Cancel', movies_path, class: 'btn-secondary lg' %>
