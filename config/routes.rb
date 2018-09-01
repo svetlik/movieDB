@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :movies do
     get '/rate', to: 'ratings#new'
     post '/rate', to: 'ratings#create'
+    get '/update_rating', to: 'ratings#edit', as: 'edit_rate'
+    patch '/update_rating', to: 'ratings#update'
   end
   resources :categories
   resources :users, only: [:new, :create]

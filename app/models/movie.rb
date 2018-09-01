@@ -11,5 +11,4 @@ class Movie < ApplicationRecord
 
   scope :by_category, ->(category) { where(category: category) }
   scope :by_rating, ->(rating) { where(rating: rating) }
-
 end

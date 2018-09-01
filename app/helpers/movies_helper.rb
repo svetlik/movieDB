@@ -38,4 +38,10 @@ module MoviesHelper
     rating = Rating.find_by(movie: movie, user: current_user)
     rating.score if rating.present?
   end
+
+  def movies_rated(num)
+    Movie.all.select do |movie|
+      (num...num+1).member?(calculate_rating(movie).to_f)
+    end
+  end
 end

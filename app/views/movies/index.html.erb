@@ -39,7 +39,7 @@
               <td><%= link_to 'Destroy', movie, method: :delete,
                                               data: { confirm: 'Are you sure?' } %></td>
             <% elsif logged_in? %>
-              <td><%= already_rated(movie) ? 'Rated' : link_to('Rate', movie_rate_path(movie)) %></td>
+              <td><%= already_rated(movie) ? link_to("Update rating of #{user_rating(movie)}", movie_edit_rate_path(movie)) : link_to('Rate', movie_rate_path(movie)) %></td>
             <% end %>
           </tr>
         <% end %>
@@ -56,7 +56,7 @@
   <div class="container grid-25 mobile-grid-25">
     <p>Rating</p>
     <% [1, 2, 3, 4, 5].each do |num| %>
-      <div><%= link_to num, movies_path(rating: num)%> (<%= "#{Movie.where(rating: num).count}"%>)</div>
+      <div><%= link_to num, movies_path(rating: num)%> (<%= "#{movies_rated(num).count}"%>)</div>
     <% end %>
   </div>
 </div>

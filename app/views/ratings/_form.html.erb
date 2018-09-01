@@ -1,0 +1,8 @@
+<%= simple_form_for @rating do |f| %>
+  <%= f.input :score, label: false, collection: [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]], include_blank: 'Rate movie' %>
+
+  <%= hidden_field_tag 'movie_id', params[:movie_id] %>
+
+  <%= f.submit 'Save', class: 'btn-primary lg' %>
+  <%= link_to 'Cancel', movies_path, class: 'btn-secondary lg' %>
+<% end %>
