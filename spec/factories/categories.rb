@@ -5,5 +5,17 @@ FactoryBot.define do
     trait :horror do
       name { :horror }
     end
+
+    trait :action do
+      name { :action }
+    end
+
+    trait :comedy do
+      name { :comedy }
+    end
+
+    trait :animation do
+      name { :animation }
+    end
   end
 end

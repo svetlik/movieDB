@@ -7,10 +7,13 @@
     </div>
   <% end %>
 
-  <%= simple_form_for @category do |f| %>
-    <%= f.input :name, label: false, placeholder: 'Name' %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= simple_form_for @category do |f| %>
+        <%= f.input :name, label: false, placeholder: 'Name' %>
 
-    <%= f.submit 'Save', class: 'btn-primary lg' %>
-    <%= link_to 'Cancel', movies_path, class: 'btn-secondary lg' %>
-  <% end %>
+        <%= f.submit 'Save', class: 'btn-primary lg' %>
+        <%= link_to 'Cancel', movies_path, class: 'btn-secondary lg' %>
+      <% end %>
+    </div>
 </div>

@@ -1,13 +1,17 @@
 <div class="jumbotron">
   <h1>New movie</h1>
 
-  <%= simple_form_for @movie do |f| %>
-    <%= f.input :title, label: false, placeholder: 'Title' %>
-    <%= f.input :text, label: false, placeholder: 'Text' %>
-    <%= f.input :rating, label: false, collection: [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]], include_blank: 'Rate movie' %>
-    <%= f.input :category_id, label: false, collection: Category.all, include_blank: 'Select category' %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= simple_form_for @movie do |f| %>
+        <%= f.input :title, label: false, placeholder: 'Title' %>
+        <%= f.input :text, label: false, placeholder: 'Text' %>
+        <%= f.input :rating, label: false, collection: [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]], include_blank: 'Rate movie' %>
+        <%= f.input :category_id, label: false, collection: Category.all, include_blank: 'Select category' %>
 
-    <%= f.submit 'Save', class: 'btn-primary lg' %>
-    <%= link_to 'Cancel', movies_path, class: 'btn-secondary lg' %>
-  <% end %>
+        <%= f.submit 'Save', class: 'btn-primary lg' %>
+        <%= link_to 'Cancel', movies_path, class: 'btn-secondary lg' %>
+      <% end %>
+    </div>
+  </div>
 </div>

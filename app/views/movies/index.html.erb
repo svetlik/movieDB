@@ -1,8 +1,6 @@
 <div class="jumbotron grid-container">
   <h1>Movies</h1>
 
-  <%= react_component("FilterField", { title: 'Categories', collection: rating_list }) %>
-
   <div class="container grid-25 mobile-grid-25">
     <p>Categories</p>
     <% Category.all.each do |category| %>
@@ -51,8 +49,6 @@
     <%= will_paginate @movies, class: 'pagination' %>
   </div>
 
-  <%= react_component("FilterField", { title: 'Rating', collection: rating_list }) %>
-
   <div class="container grid-25 mobile-grid-25">
     <p>Rating</p>
     <% [1, 2, 3, 4, 5].each do |num| %>
@@ -61,9 +57,11 @@
   </div>
 </div>
 
-<nav class="navbar navbar-right">
-  <div class="nav-links">
-    <span class="btn btn-link"><%= link_to 'Add new movie', new_movie_path %></span>
-    <span class="btn btn-link"><%= link_to 'Add new category', new_category_path %></span>
-  </div>
-</nav>
+<% if logged_in? %>
+  <nav class="navbar navbar-right">
+    <div class="nav-links">
+      <span class="btn btn-link"><%= link_to 'Add new movie', new_movie_path %></span>
+      <span class="btn btn-link"><%= link_to 'Add new category', new_category_path %></span>
+    </div>
+  </nav>
+<% end %>
