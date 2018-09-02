@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Movie, type: :model do
-  let(:horror) { FactoryBot.create(:category, :horror) }
+  let(:horror) { FactoryBot.build(:category) }
 
   subject {
     described_class.new(

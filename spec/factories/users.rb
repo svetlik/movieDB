@@ -7,14 +7,17 @@ FactoryBot.define do
 
     trait :jack do
       name { 'Jack Doe' }
+      email { "jack@doe.com" }
     end
 
     trait :john do
       name { 'John Doe' }
+      email { "john@doe.com" }
     end
 
     trait :jada do
       name { 'Jada Doe' }
+      email { "jada@doe.com" }
     end
   end
 end

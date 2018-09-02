@@ -24,7 +24,6 @@ class MoviesController < ApplicationController
       Rating.create(score: @movie.rating, user: current_user, movie: @movie)
       redirect_to movies_path, notice: "Movie added to the DB"
     else
-      flash[:error] = 'Movie already exists in the DB'
       render :new
     end
   end
