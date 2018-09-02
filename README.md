@@ -14,7 +14,7 @@ Movies can be filtered by category and by rating.
 
 In order to interact with the database, a visitor has to sign up with a name, email and a password, and then log in.
 
-After log in, several functionalities become available to the logged-in visitor:
+After login, several functionalities become available to the logged-in visitor:
 - creation of categories
   - a category has only a name
 - creation of movies
@@ -32,3 +32,4 @@ Functionalities to be yet implemented:
 - graphics for rating
 - responsiveness
 - proper styling
+- combine filtering cards into one component

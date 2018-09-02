@@ -37,6 +37,8 @@ class MoviesController < ApplicationController
     @rating = Rating.find_by(movie: @movie, user: current_user)
     if @movie.update(movie_params)
       @rating.score = @movie.rating
+      @rating.save!
+
       redirect_to movies_path, notice: "Movie info updated"
     else
       flash[:error] = 'Invalid data'

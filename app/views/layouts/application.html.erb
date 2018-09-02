@@ -5,26 +5,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <!--
-      Formatted for readability
-    -->
-    <meta
-      name="viewport"
-      content="
-        width=device-width,
-        initial-scale=1,
-        minimum-scale=1,
-        maximum-scale=1
-      "
-    />
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application' %>
   </head>
 
    <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
+    <header class="navbar navbar-inverse">
       <div class="container">
         <%= link_to "MovieDB", root_path, id: "logo" %>
         <nav>

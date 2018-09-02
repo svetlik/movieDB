@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_28_167425) do
+ActiveRecord::Schema.define(version: 2018_08_28_165303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,11 +28,9 @@ ActiveRecord::Schema.define(version: 2018_08_28_167425) do
     t.datetime "updated_at", null: false
     t.bigint "category_id"
     t.bigint "author_id"
-    t.float "rating", default: 0.0
-    t.bigint "ratings_id"
+    t.integer "rating", default: 0
     t.index ["author_id"], name: "index_movies_on_author_id"
     t.index ["category_id"], name: "index_movies_on_category_id"
-    t.index ["ratings_id"], name: "index_movies_on_ratings_id"
   end
 
   create_table "ratings", force: :cascade do |t|
