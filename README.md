@@ -10,6 +10,8 @@ A movie has a title, a description (or text), a rating and a category.
 
 Movies can be filtered by category and by rating.
 
+10 movies per page are displayed.
+
 In order to interact with the database, a visitor has to sign up with a name, email and a password, and then log in.
 
 After log in, several functionalities become available to the logged-in visitor:
@@ -22,3 +24,11 @@ After log in, several functionalities become available to the logged-in visitor:
   - a visitor can update a previously rated movie
 
 If there are no movies entered, a message will be displayed prompting the creation of one.
+
+Functionalities to be yet implemented:
+- full-text search
+- filtering withoug page reload
+- rating without page reload
+- graphics for rating
+- responsiveness
+- proper styling

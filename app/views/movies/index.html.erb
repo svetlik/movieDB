@@ -37,13 +37,14 @@
               <td><%= link_to 'Delete', movie, method: :delete,
                                               data: { confirm: 'Are you sure?' } %></td>
             <% elsif logged_in? %>
-              <td><%= already_rated(movie) ? link_to("Update rating of #{user_rating(movie)}", movie_edit_rate_path(movie)) : link_to('Rate', movie_rate_path(movie)) %></td>
+              <td colspan="3"><%= already_rated(movie) ? link_to("Update rating of #{user_rating(movie)}", movie_edit_rate_path(movie)) : link_to('Rate', movie_rate_path(movie)) %></td>
             <% end %>
           </tr>
         <% end %>
       </table>
     <% else %>
-      <div>No movies. Would you like to <%= link_to 'add one?', new_movie_path %></div>
+      <div>No movies in the database. </div>
+      <div><%= raw(logged_in? ? "Would you like to #{link_to 'add one?', new_movie_path}" : '')%></div>
     <% end %>
 
     <%= will_paginate @movies, class: 'pagination' %>
