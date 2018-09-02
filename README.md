@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A small implementation of a Movie database for adding, rating and filtering movies by multiple users, using Ruby on Rails, ReactJS, PostgreSQL, RSpec, Capybara, Twitter Bootstrap, and Unsemantic.
 
-Things you may want to cover:
+A working version can be found at https://boiling-reaches-35773.herokuapp.com.
 
-* Ruby version
+The root page for non-logged-in visitors offers a list of the available movies.
 
-* System dependencies
+A movie has a title, a description (or text), a rating and a category.
 
-* Configuration
+Movies can be filtered by category and by rating.
 
-* Database creation
+In order to interact with the database, a visitor has to sign up with a name, email and a password, and then log in.
 
-* Database initialization
+After log in, several functionalities become available to the logged-in visitor:
+- creation of categories
+  - a category has only a name
+- creation of movies
+- showing, editing, deleting own movies
+  - showing a movie displays movie information, including the description
+- rating of movies of other users
+  - a visitor can update a previously rated movie
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+If there are no movies entered, a message will be displayed prompting the creation of one.
